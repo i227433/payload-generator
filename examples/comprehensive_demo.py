@@ -172,7 +172,7 @@ def demo_burp_integration():
     
     # Initialize Burp API
     burp_config = {
-        'base_url': 'http://127.0.0.1:1337',
+        'base_url': 'http://127.0.0.1:8080',
         'api_key': 'test_key',
         'timeout': 10
     }

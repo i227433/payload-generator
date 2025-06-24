@@ -29,10 +29,9 @@ class BurpSuiteAPI:
         Initialize Burp Suite API client
         
         Args:
-            config: Configuration dictionary with API settings
-        """
+            config: Configuration dictionary with API settings        """
         self.config = config or {
-            'base_url': 'http://127.0.0.1:1337',
+            'base_url': 'http://127.0.0.1:8080',
             'api_key': 'z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5',
             'timeout': 30,
             'retry_attempts': 3
