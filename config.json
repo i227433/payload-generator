@@ -1,0 +1,50 @@
+{
+  "burp": {
+    "base_url": "http://127.0.0.1:1337",
+    "api_key": "z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5",
+    "timeout": 30,
+    "retry_attempts": 3,
+    "verify_ssl": false,
+    "user_agent": "PayloadGenerator/1.0"
+  },
+  "payloads": {
+    "max_count": 1000,
+    "default_encoding": "none",
+    "enable_obfuscation": false,
+    "default_platform": "both",
+    "default_database": "mysql",
+    "default_context": "html"
+  },
+  "output": {
+    "default_format": "cli",
+    "default_directory": "./output",
+    "enable_backup": true,
+    "auto_timestamp": true
+  },
+  "security": {
+    "max_payload_length": 10000,
+    "sanitize_inputs": true,
+    "validate_urls": true,
+    "safe_file_operations": true
+  },
+  "performance": {
+    "max_threads": 4,
+    "request_delay": 0.5,
+    "batch_size": 10,
+    "timeout_requests": 30
+  },
+  "logging": {
+    "level": "INFO",
+    "enable_file_logging": true,
+    "log_directory": "./logs",
+    "max_log_size": "10MB",
+    "log_rotation": true
+  },
+  "features": {
+    "enable_clipboard": true,
+    "enable_gui": false,
+    "enable_proxy_integration": true,
+    "enable_scan_integration": true,
+    "enable_report_export": true
+  }
+}

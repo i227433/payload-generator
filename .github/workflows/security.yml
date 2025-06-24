@@ -1,0 +1,97 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * 1'  # Run weekly on Mondays at 2 AM
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install bandit safety semgrep
+    
+    - name: Run Bandit security scan
+      run: |
+        bandit -r src/ -f json -o bandit-results.json
+        bandit -r src/ -f txt
+      continue-on-error: true
+    
+    - name: Run Safety check for vulnerable dependencies
+      run: |
+        safety check --json --output safety-results.json
+        safety check
+      continue-on-error: true
+    
+    - name: Run Semgrep security scan
+      run: |
+        semgrep --config=auto --json --output=semgrep-results.json src/
+        semgrep --config=auto src/
+      continue-on-error: true
+    
+    - name: Upload security scan results
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-scan-results
+        path: |
+          bandit-results.json
+          safety-results.json
+          semgrep-results.json
+    
+    - name: Comment PR with security findings
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          
+          let comment = '## 🔒 Security Scan Results\n\n';
+          
+          // Read and summarize Bandit results
+          try {
+            const banditResults = JSON.parse(fs.readFileSync('bandit-results.json', 'utf8'));
+            const highSeverity = banditResults.results.filter(r => r.issue_severity === 'HIGH').length;
+            const mediumSeverity = banditResults.results.filter(r => r.issue_severity === 'MEDIUM').length;
+            const lowSeverity = banditResults.results.filter(r => r.issue_severity === 'LOW').length;
+            
+            comment += `### Bandit Scan\n`;
+            comment += `- High: ${highSeverity} issues\n`;
+            comment += `- Medium: ${mediumSeverity} issues\n`;
+            comment += `- Low: ${lowSeverity} issues\n\n`;
+          } catch (e) {
+            comment += '### Bandit Scan\nNo results available\n\n';
+          }
+          
+          // Read and summarize Safety results
+          try {
+            const safetyResults = JSON.parse(fs.readFileSync('safety-results.json', 'utf8'));
+            comment += `### Safety Check\n`;
+            comment += `Found ${safetyResults.length} vulnerable dependencies\n\n`;
+          } catch (e) {
+            comment += '### Safety Check\nNo vulnerable dependencies found\n\n';
+          }
+          
+          comment += '📋 Full results are available in the workflow artifacts.';
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
