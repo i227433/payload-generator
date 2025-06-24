@@ -116,22 +116,21 @@ def main(xss: bool, sqli: bool, cmdi: bool, encode: str, obfuscate: bool,
     # Load configuration
     if config:
         app_config = load_config(config)
-    else:
-        app_config = load_application_config()
-    
-    # Validate inputs
+    else:        app_config = load_application_config()
+      # Validate inputs
     if count > app_config['payloads']['max_count']:
         click.echo(f"{Fore.RED}Error: Count exceeds maximum allowed ({app_config['payloads']['max_count']}){Style.RESET_ALL}")
-        sys.exit(1)
+        return
     
     if target and not validate_url(target):
         click.echo(f"{Fore.RED}Error: Invalid target URL{Style.RESET_ALL}")
-        sys.exit(1)
+        return
     
     if not validate_count(count):
         click.echo(f"{Fore.RED}Error: Invalid count value{Style.RESET_ALL}")
-        sys.exit(1)
-      # Check if at least one payload type is selected
+        return
+    
+    # Check if at least one payload type is selected
     if not any([xss, sqli, cmdi]):
         click.echo(f"{Fore.YELLOW}No payload type selected. Use --help for available options.{Style.RESET_ALL}")
         return
