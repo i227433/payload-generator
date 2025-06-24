@@ -112,12 +112,13 @@ def main(xss: bool, sqli: bool, cmdi: bool, encode: str, obfuscate: bool,
     # Print banner
     if not any([xss, sqli, cmdi]):
         print_banner()
-    
-    # Load configuration
+      # Load configuration
     if config:
         app_config = load_config(config)
-    else:        app_config = load_application_config()
-      # Validate inputs
+    else:
+        app_config = load_application_config()
+    
+    # Validate inputs
     if count > app_config['payloads']['max_count']:
         click.echo(f"{Fore.RED}Error: Count exceeds maximum allowed ({app_config['payloads']['max_count']}){Style.RESET_ALL}")
         return
