@@ -2,8 +2,8 @@
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/github/workflow/status/username/payload-generator/CI)](https://github.com/username/payload-generator/actions)
-[![Security Rating](https://img.shields.io/badge/security-A-green)](https://github.com/username/payload-generator)
+[![Build Status](https://img.shields.io/github/workflow/status/i227433/payload-generator/CI)](https://github.com/i227433/payload-generator/actions)
+[![Security Rating](https://img.shields.io/badge/security-A-green)](https://github.com/i227433/payload-generator)
 
 A comprehensive, modular payload generation tool that produces evasion-ready payloads for common web vulnerabilities, including bypass techniques for input validation, WAFs, and blacklist filters, with full Burp Suite Professional integration.
 
@@ -33,7 +33,7 @@ A comprehensive, modular payload generation tool that produces evasion-ready pay
 ### Quick Setup
 ```bash
 # Clone the repository
-git clone https://github.com/username/payload-generator.git
+git clone https://github.com/i227433/payload-generator.git
 cd payload-generator
 
 # Create virtual environment
@@ -236,9 +236,9 @@ pip install -r requirements.txt --force-reinstall
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/username/payload-generator/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/username/payload-generator/discussions)
-- **Security**: Report security issues to security@example.com
+- **Issues**: [GitHub Issues](https://github.com/i227433/payload-generator/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/i227433/payload-generator/discussions)
+- **Security**: Report security issues to i227433@nu.edu.pk
 
 ## 🏆 Acknowledgments
 

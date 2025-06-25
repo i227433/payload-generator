@@ -142,10 +142,15 @@ burp_request_*.txt
 burp_*/
 demo_output/
 test_*.json
+test_*.csv
+test_*.xml
+test_*.txt
 debug_*.json
 direct_*.json
 comprehensive_*.xml
 *.tmp
+output/
+logs/
 
 # IDE files
 *.swp
