@@ -25,7 +25,7 @@ def main():
     
     # Configuration for Burp Suite
     burp_config = {
-        'base_url': 'http://127.0.0.1:8080',
+        'base_url': 'http://127.0.0.1:1337',
         'api_key': 'XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY',
         'timeout': 30,
         'retry_attempts': 3
@@ -48,7 +48,7 @@ def main():
     else:
         print("✗ Failed to connect to Burp Suite API")
         print("Make sure Burp Suite Professional is running with REST API enabled")
-        print("API Endpoint: http://127.0.0.1:8080")
+        print("API Endpoint: http://127.0.0.1:1337")
         print("API Key: XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY")
         return
     

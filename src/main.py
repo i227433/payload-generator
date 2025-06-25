@@ -28,7 +28,7 @@ init(autoreset=True)
 CONFIG_FILE = Path(__file__).parent.parent / "config.json"
 DEFAULT_CONFIG = {
     "burp": {
-        "base_url": "http://127.0.0.1:8080",
+        "base_url": "http://127.0.0.1:1337",
         "api_key": "XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY",
         "timeout": 30,
         "retry_attempts": 3

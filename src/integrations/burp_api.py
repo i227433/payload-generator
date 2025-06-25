@@ -31,7 +31,7 @@ class BurpSuiteAPI:
         Args:
             config: Configuration dictionary with API settings        """
         self.config = config or {
-            'base_url': 'http://127.0.0.1:8080',
+            'base_url': 'http://127.0.0.1:1337',
             'api_key': 'XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY',
             'timeout': 30,
             'retry_attempts': 3
