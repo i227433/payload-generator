@@ -26,7 +26,7 @@ def main():
     # Configuration for Burp Suite
     burp_config = {
         'base_url': 'http://127.0.0.1:8080',
-        'api_key': 'z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5',
+        'api_key': 'XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY',
         'timeout': 30,
         'retry_attempts': 3
     }
@@ -49,7 +49,7 @@ def main():
         print("✗ Failed to connect to Burp Suite API")
         print("Make sure Burp Suite Professional is running with REST API enabled")
         print("API Endpoint: http://127.0.0.1:8080")
-        print("API Key: z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5")
+        print("API Key: XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY")
         return
     
     print("\n2. Generating Test Payloads")

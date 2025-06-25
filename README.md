@@ -44,14 +44,14 @@ venv\Scripts\activate
 pip install -r requirements.txt
 
 # Set environment variables
-set BURP_API_KEY=z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5
-set BURP_API_URL=http://127.0.0.1:1337
+set BURP_API_KEY=XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY
+set BURP_API_URL=http://127.0.0.1:8080
 ```
 
 ### Burp Suite Configuration
 1. Enable REST API in Burp Suite Professional
-2. Set API endpoint to `http://127.0.0.1:1337`
-3. Use API key: `z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5`
+2. Set API endpoint to `http://127.0.0.1:8080`
+3. Use API key: `XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY`
 4. Ensure localhost network access
 
 ## 🎯 Quick Start
@@ -145,8 +145,8 @@ payload-generator/
 ### Environment Variables
 ```bash
 # Burp Suite Configuration
-set BURP_API_KEY=z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5
-set BURP_API_URL=http://127.0.0.1:1337
+set BURP_API_KEY=XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY
+set BURP_API_URL=http://127.0.0.1:8080
 set BURP_TIMEOUT=30
 
 # Application Configuration
@@ -159,8 +159,8 @@ set OUTPUT_DIR=./output
 ```json
 {
     "burp": {
-        "base_url": "http://127.0.0.1:1337",
-        "api_key": "z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5",
+        "base_url": "http://127.0.0.1:8080",
+        "api_key": "XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY",
         "timeout": 30,
         "retry_attempts": 3
     },
@@ -213,7 +213,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Burp Suite Connection Failed**
 ```bash
 # Check if Burp Suite is running
-netstat -an | findstr 1337
+netstat -an | findstr 8080
 
 # Verify API key configuration
 echo %BURP_API_KEY%

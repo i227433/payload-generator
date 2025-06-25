@@ -32,7 +32,7 @@ class BurpSuiteAPI:
             config: Configuration dictionary with API settings        """
         self.config = config or {
             'base_url': 'http://127.0.0.1:8080',
-            'api_key': 'z8iaQVY3uhjGDLI1XfcdPFAgr7IujEH5',
+            'api_key': 'XVdsO6XnDDFBP9cFbAJPCUigEVZxT8mY',
             'timeout': 30,
             'retry_attempts': 3
         }
